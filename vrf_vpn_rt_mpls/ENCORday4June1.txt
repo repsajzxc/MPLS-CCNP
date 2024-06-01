@@ -706,13 +706,13 @@ config t
  ip cef
  mpls ip
   int Ethernet1/1
-_____________
-_____________
-_____________
+  mpls ip
+    mpls label protocol ldp
+    !mpls mtu override 1512 
   int Ethernet1/2
-_____________
-_____________
-_____________
+  mpls ip
+    mpls label protocol ldp
+    !mpls mtu override 1512 
 ****
 ***
 R2:P:
@@ -724,18 +724,18 @@ config t
     mpls label protocol ldp
     !mpls mtu override 1512
   int Ethernet1/2
-_____________
-_____________
-_____________
+  mpls ip
+    mpls label protocol ldp
+    !mpls mtu override 1512
 ****
 R1-1:PEz
 config t
  ip cef
  mpls ip
   int Ethernet1/0
-_____________
-_____________
-_____________
+  mpls ip
+    mpls label protocol ldp
+    !mpls mtu override 1512
 
 How to check:
 R2P#show mpls ldp neighbor (lib)
@@ -808,6 +808,7 @@ config t
    route-target 64999:3 
    exit
 ***
+
 R1:pez
 config t
  ip vrf clientBDOb
